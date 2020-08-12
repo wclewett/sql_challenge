@@ -7,8 +7,6 @@ The best way to start is to build out a ERD or Entity Relationship Diagram. Plea
 
 ![ERD Snapshot](https://github.com/wclewett/sql_challenge/blob/master/EmployeeSQL/erd/ERD.png)
 
-As denoted above with blue text and a small key image, the primary keys in this database are: department id (dept_no), employee id (emp_no), and title id (title_id). Foriegn keys are denoted by a three pronged arrow connection, i.e. dept_no in dept_manager.
-
 ## Database Creation
 The employee database is created in PostgresSQL by first creating schemas for each table and then importing the respective CSV files. See [Table Creation](https://github.com/wclewett/sql_challenge/blob/master/EmployeeSQL/scripts/sql/create_tables.sql) for specific code.
 
@@ -28,3 +26,14 @@ Nearly all of these queries were executing using an inner join. See [SQL Queries
 
 ## Python Analysis (Bonus)
 *As you examine the data, you are overcome with a creeping suspicion that the dataset is fake. You surmise that your boss handed you spurious data in order to test the data engineering skills of a new employee. To confirm your hunch, you decide to take the following steps to generate a visualization of the data, with which you will confront your boss.*
+
+Instead of reading in the CSVs directly to a Jupyter notebook we can use the Python package *SQLAlchemy* to connect our Jupyter Notebook directly to our SQL database. See [Pandas Analysis](https://github.com/wclewett/sql_challenge/blob/master/EmployeeSQL/scripts/python/pandas_analysis.ipynb) for specific code.
+
+Our analysis focused on two main visualizations: average salary by job title and the distribution of all employee salaries. See the below visualizations created using pandas and matplotlib:
+
+![Employee Salary Histogram](https://github.com/wclewett/sql_challenge/blob/master/EmployeeSQL/data%20visualizations/Employee%20Salaries%20Histogram.png)
+
+![Average Salary by Job Title](https://github.com/wclewett/sql_challenge/blob/master/EmployeeSQL/data%20visualizations/Average%20Salary%20by%20Job%20Title.png)
+
+## Summary
+As we progressed through our analysis we began to realize that this may not be a real dataset. The first time this became obvious was when we executed the final SQL query and there was extremely high frequencies of the same name (>150).
