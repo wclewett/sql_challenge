@@ -1,5 +1,6 @@
 -- 1. List the following details of each employee:
 --    employee number, last name, first name, sex, and salary.
+
 select employees.emp_no as "Employee Number",
 	employees.last_name as "Last Name",
 	employees.first_name as "First Name",
@@ -11,6 +12,7 @@ employees.emp_no = salaries.emp_no
 order by "Employee Number";
 
 -- 2. List first name, last name, and hire date for employees who were hired in 1986.
+
 select first_name as "First Name", 
 	last_name as "Last Name", 
 	hire_date as "Hire Date"
@@ -20,6 +22,7 @@ order by "Hire Date";
 
 -- 3. List the manager of each department with the following information:
 --    department number, department name, the manager's employee number, last name, first name.
+
 select dept_manager.dept_no as "Manager",
 	departments.dept_name as "Department",
 	dept_manager.emp_no as "Employee Number",
@@ -32,6 +35,7 @@ order by "Department";
 
 -- 4. List the department of each employee with the following information:
 --    employee number, last name, first name, and department name.
+
 select dept_emp.emp_no as "Employee Number",
 	employees.last_name as "Last Name",
 	employees.first_name as "First Name",
@@ -43,6 +47,7 @@ order by "Employee Number";
 
 -- 5. List first name, last name, and sex for employees whose:
 --    first name is "Hercules" and last names begin with "B."
+
 select first_name as "First Name",
 	last_name as "Last Name",
 	sex as "Sex"
@@ -52,6 +57,7 @@ order by "Last Name";
 
 -- 6. List all employees in the Sales department, including their:
 --    employee number, last name, first name, and department name.
+
 select dept_emp.emp_no as "Employee Number",
 	employees.last_name as "Last Name",
 	employees.first_name as "First Name",
@@ -64,6 +70,7 @@ order by "Employee Number";
 
 -- 7. List all employees in the Sales and Development departments,
 --    including their employee number, last name, first name, and department name.
+
 select dept_emp.emp_no as "Employee Number",
 	employees.last_name as "Last Name",
 	employees.first_name as "First Name",
@@ -76,6 +83,7 @@ order by "Employee Number";
 
 -- 8. In descending order, list the frequency count of employee last names,
 --    i.e., how many employees share each last name.
+
 select last_name,
 	count(last_name)
 from employees
