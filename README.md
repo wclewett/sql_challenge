@@ -1,6 +1,6 @@
 # SQL Challenge
 ## Background
-*It is a beautiful spring day, and it is two weeks since you have been hired as a new data engineer at Pewlett Hackard. Your first major task is a research project on employees of the corporation from the 1980s and 1990s. All that remain of the database of employees from that period are six CSV files.* Analysis is conducted with PostgresSQL and Python.
+*It is a beautiful spring day, and it is two weeks since you have been hired as a new data engineer at Pewlett Hackard. Your first major task is a research project on employees of the corporation from the 1980s and 1990s. All that remain of the database of employees from that period are six CSV files.* Analysis was conducted with PostgresSQL and Python.
 
 ## Strategy 
 The best way to start is to build out a ERD or Entity Relationship Diagram. Please see the below ERD of the 6 databases:
@@ -8,10 +8,10 @@ The best way to start is to build out a ERD or Entity Relationship Diagram. Plea
 ![ERD Snapshot](https://github.com/wclewett/sql_challenge/blob/master/EmployeeSQL/erd/ERD.png)
 
 ## Database Creation
-The employee database is created in PostgresSQL by first creating schemas for each table and then importing the respective CSV files. See [Table Creation](https://github.com/wclewett/sql_challenge/blob/master/EmployeeSQL/scripts/sql/create_tables.sql) for specific code.
+The employee database was created in PostgresSQL by first creating schemas for each table and then importing the respective CSV files. See [Table Creation](https://github.com/wclewett/sql_challenge/blob/master/EmployeeSQL/scripts/sql/create_tables.sql) for specific code. Primary keys were as follows: Department Number, Title Id, and Employee Number.
 
 ## SQL Queries
-The next step in the analysis is to run a few SQL queries to get a better handle of the database. The below queries were ran on the employee database:
+The next step in the analysis was to run a few SQL queries to get a better handle of the database. The below queries were ran on the employee database:
   
 1. List the following details of each employee: employee number, last name, first name, sex, and salary.
 2. List first name, last name, and hire date for employees who were hired in 1986.
@@ -35,5 +35,15 @@ Our analysis focused on two main visualizations: average salary by job title and
 
 ![Average Salary by Job Title](https://github.com/wclewett/sql_challenge/blob/master/EmployeeSQL/data%20visualizations/Average%20Salary%20by%20Job%20Title.png)
 
-## Summary
-As we progressed through our analysis we began to realize that this may not be a real dataset. The first time this became obvious was when we executed the final SQL query and there was extremely high frequencies of the same name (>150).
+## Summary and Epilogue
+As we progressed through our analysis we began to realize that this may not be a real dataset. This became obvious was when we executed the final SQL query and there was extremely high frequencies of the same name (>150). When ordering the final SQL query in ascending fashion, we see that the only unique last name is "Foolsday". Once the Python analysis was complete and the results were handed into the boss we were presented with the following epilogue:
+
+*Evidence in hand, you march into your boss's office and present the visualization. With a sly grin, your boss thanks you for your work. On your way out of the office, you hear the words, "Search your ID number." You look down at your badge to see that your employee ID number is 499942.*
+
+When we search the ID number using the Pandas Employees dataframe we are returned with the below row information:
+
+emp_no | title_id | birth_date | first_name | last_name | sex | hire_date | title | salary 
+------------ | ------------- | ------------ | ------------- | ------------ | ------------- | ------------ | ------------- | ------------ 
+499942 | e0004 | 1963-01-10 | April | Foolsday | F | 1997-02-10 | Technique Leader | 40000 
+
+April Fools!
